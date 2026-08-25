@@ -99,7 +99,8 @@ const products = [
         description: "Deep seating and soft cushions for ultimate relaxation.",
         badge: "PREMIUM"
     },
- {
+
+    {
         id: 10,
         name: "Luxery bed",
         category: "Bed",
@@ -108,6 +109,7 @@ const products = [
         description: "Soft cushions for ultimate relaxation.",
         badge: "PREMIUM"
     },
+
     {
         id: 11,
         name: "Amezing Stylish Bed",
@@ -117,7 +119,8 @@ const products = [
         description: "Premium soft stylishb bed.",
         badge: "PREMIUM"
     },
-     {
+
+    {
         id: 12,
         name: "King Shahi bed",
         category: "Bed",
@@ -126,6 +129,7 @@ const products = [
         description: "Shahi king style bed.",
         badge: "PREMIUM"
     }
+
 ];
 
 
@@ -133,14 +137,20 @@ const products = [
    CART
 ===================================================== */
 
-let cart = JSON.parse(localStorage.getItem("dreamFurnitureCart")) || [];
+let cart =
+    JSON.parse(
+        localStorage.getItem("dreamFurnitureCart")
+    ) || [];
 
 
 /* =====================================================
    WISHLIST
 ===================================================== */
 
-let wishlist = JSON.parse(localStorage.getItem("dreamFurnitureWishlist")) || [];
+let wishlist =
+    JSON.parse(
+        localStorage.getItem("dreamFurnitureWishlist")
+    ) || [];
 
 
 /* =====================================================
@@ -168,7 +178,8 @@ function formatPrice(price) {
 
 function displayProducts(category = "All") {
 
-    const container = document.getElementById("productContainer");
+    const container =
+        document.getElementById("productContainer");
 
     if (!container) return;
 
@@ -182,11 +193,11 @@ function displayProducts(category = "All") {
 
     } else {
 
-        filteredProducts = products.filter(
-
-            product => product.category === category
-
-        );
+        filteredProducts =
+            products.filter(
+                product =>
+                    product.category === category
+            );
 
     }
 
@@ -216,79 +227,127 @@ function displayProducts(category = "All") {
     }
 
 
-    container.innerHTML = filteredProducts.map(product => {
+    container.innerHTML =
+        filteredProducts.map(product => {
 
-        const isWishlisted = wishlist.includes(product.id);
-
-
-        return `
-
-            <div class="col-sm-6 col-lg-4 col-xl-3 reveal show">
-
-                <div class="product-card">
-
-                    <div class="product-image-wrapper">
-
-                        <span class="product-badge">
-                            ${product.badge}
-                        </span>
+            const isWishlisted =
+                wishlist.includes(product.id);
 
 
-                        <button
-                            class="wishlist-btn ${isWishlisted ? "active" : ""}"
-                            onclick="toggleWishlist(${product.id}, this)"
-                            title="Add to wishlist">
+            return `
 
-                            <i class="bi ${isWishlisted ? "bi-heart-fill" : "bi-heart"}"></i>
+                <div class="col-sm-6 col-lg-4 col-xl-3 reveal show">
 
-                        </button>
+                    <div class="product-card">
 
+                        <div class="product-image-wrapper">
 
-                        <img
-                            src="${product.image}"
-                            class="product-img"
-                            alt="${product.name}"
-                            onclick="openImage('${product.image}', '${product.name}')">
-
-                    </div>
+                            <span class="product-badge">
+                                ${product.badge}
+                            </span>
 
 
-                    <div class="product-body">
+                            <!-- WISHLIST BUTTON -->
 
-                        <div class="product-category">
-                            ${product.category}
+                            <button
+
+                                class="wishlist-btn ${
+                                    isWishlisted
+                                        ? "active"
+                                        : ""
+                                }"
+
+                                onclick="
+                                    toggleWishlist(
+                                        ${product.id},
+                                        this
+                                    )
+                                "
+
+                                title="Add to wishlist">
+
+                                <i class="bi ${
+                                    isWishlisted
+                                        ? "bi-heart-fill"
+                                        : "bi-heart"
+                                }"></i>
+
+                            </button>
+
+
+                            <!-- PRODUCT IMAGE -->
+
+                            <img
+
+                                src="${product.image}"
+
+                                class="product-img"
+
+                                alt="${product.name}"
+
+                                onclick="
+                                    openImage(
+                                        '${product.image}',
+                                        '${product.name}'
+                                    )
+                                ">
+
                         </div>
 
 
-                        <h3 class="product-name">
-                            ${product.name}
-                        </h3>
+                        <div class="product-body">
 
-
-                        <p class="product-description mb-3">
-                            ${product.description}
-                        </p>
-
-
-                        <div class="d-flex align-items-center justify-content-between">
-
-                            <div>
-
-                                <div class="product-price">
-                                    ${formatPrice(product.price)}
-                                </div>
-
+                            <div class="product-category">
+                                ${product.category}
                             </div>
 
 
-                            <button
-                                class="add-cart-btn"
-                                onclick="addToCart(${product.id})"
-                                title="Add to cart">
+                            <h3 class="product-name">
+                                ${product.name}
+                            </h3>
 
-                                <i class="bi bi-bag-plus"></i>
 
-                            </button>
+                            <p class="product-description mb-3">
+                                ${product.description}
+                            </p>
+
+
+                            <div class="
+                                d-flex
+                                align-items-center
+                                justify-content-between
+                            ">
+
+                                <div>
+
+                                    <div class="product-price">
+                                        ${formatPrice(
+                                            product.price
+                                        )}
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ADD CART -->
+
+                                <button
+
+                                    class="add-cart-btn"
+
+                                    onclick="
+                                        addToCart(
+                                            ${product.id}
+                                        )
+                                    "
+
+                                    title="Add to cart">
+
+                                    <i class="bi bi-bag-plus"></i>
+
+                                </button>
+
+                            </div>
 
                         </div>
 
@@ -296,11 +355,9 @@ function displayProducts(category = "All") {
 
                 </div>
 
-            </div>
+            `;
 
-        `;
-
-    }).join("");
+        }).join("");
 
 }
 
@@ -309,7 +366,10 @@ function displayProducts(category = "All") {
    FILTER PRODUCTS
 ===================================================== */
 
-function filterCategory(category, button = null) {
+function filterCategory(
+    category,
+    button = null
+) {
 
     displayProducts(category);
 
@@ -318,7 +378,9 @@ function filterCategory(category, button = null) {
 
         document
             .querySelectorAll(".filter-btn")
-            .forEach(btn => btn.classList.remove("active"));
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
 
 
         button.classList.add("active");
@@ -326,9 +388,17 @@ function filterCategory(category, button = null) {
     }
 
 
-    const shopSection = document.getElementById("shop");
+    const shopSection =
+        document.getElementById("shop");
 
-    if (shopSection && event && event.currentTarget?.classList.contains("category-card")) {
+
+    if (
+        shopSection &&
+        event &&
+        event.currentTarget?.classList.contains(
+            "category-card"
+        )
+    ) {
 
         shopSection.scrollIntoView({
 
@@ -347,21 +417,19 @@ function filterCategory(category, button = null) {
 
 function addToCart(productId) {
 
-    const product = products.find(
-
-        item => item.id === productId
-
-    );
+    const product =
+        products.find(
+            item => item.id === productId
+        );
 
 
     if (!product) return;
 
 
-    const existingItem = cart.find(
-
-        item => item.id === productId
-
-    );
+    const existingItem =
+        cart.find(
+            item => item.id === productId
+        );
 
 
     if (existingItem) {
@@ -385,7 +453,9 @@ function addToCart(productId) {
 
     updateCartUI();
 
-    showToast(`${product.name} added to your cart.`);
+    showToast(
+        `${product.name} added to your cart.`
+    );
 
 }
 
@@ -413,30 +483,38 @@ function saveCart() {
 
 function updateCartUI() {
 
-    const cartCount = document.getElementById("cartCount");
+    const cartCount =
+        document.getElementById("cartCount");
 
-    const cartItems = document.getElementById("cartItems");
+    const cartItems =
+        document.getElementById("cartItems");
 
-    const emptyCart = document.getElementById("emptyCart");
+    const emptyCart =
+        document.getElementById("emptyCart");
 
-    const cartSummary = document.getElementById("cartSummary");
+    const cartSummary =
+        document.getElementById("cartSummary");
 
-    const cartTotal = document.getElementById("cartTotal");
+    const cartTotal =
+        document.getElementById("cartTotal");
 
 
     if (!cartCount) return;
 
 
-    const totalQuantity = cart.reduce(
+    const totalQuantity =
+        cart.reduce(
 
-        (sum, item) => sum + item.quantity,
+            (sum, item) =>
+                sum + item.quantity,
 
-        0
+            0
 
-    );
+        );
 
 
-    cartCount.textContent = totalQuantity;
+    cartCount.textContent =
+        totalQuantity;
 
 
     if (cart.length === 0) {
@@ -457,72 +535,114 @@ function updateCartUI() {
     cartSummary.classList.remove("d-none");
 
 
-    cartItems.innerHTML = cart.map(item => `
+    cartItems.innerHTML =
 
-        <div class="cart-item">
+        cart.map(item => `
 
-            <div class="d-flex gap-3">
+            <div class="cart-item">
 
-                <img
-                    src="${item.image}"
-                    alt="${item.name}">
+                <div class="d-flex gap-3">
 
-
-                <div class="flex-grow-1">
-
-                    <div class="d-flex justify-content-between gap-2">
-
-                        <h6 class="mb-1">
-                            ${item.name}
-                        </h6>
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}">
 
 
-                        <button
-                            class="remove-btn"
-                            onclick="removeFromCart(${item.id})">
+                    <div class="flex-grow-1">
 
-                            <i class="bi bi-trash"></i>
+                        <div class="
+                            d-flex
+                            justify-content-between
+                            gap-2
+                        ">
 
-                        </button>
-
-                    </div>
-
-
-                    <small class="text-muted">
-                        ${item.category}
-                    </small>
-
-
-                    <div class="d-flex align-items-center justify-content-between mt-3">
-
-                        <strong>
-                            ${formatPrice(item.price * item.quantity)}
-                        </strong>
-
-
-                        <div class="d-flex align-items-center gap-2">
-
-                            <button
-                                class="quantity-btn"
-                                onclick="changeQuantity(${item.id}, -1)">
-
-                                <i class="bi bi-dash"></i>
-
-                            </button>
-
-
-                            <span>
-                                ${item.quantity}
-                            </span>
+                            <h6 class="mb-1">
+                                ${item.name}
+                            </h6>
 
 
                             <button
-                                class="quantity-btn"
-                                onclick="changeQuantity(${item.id}, 1)">
 
-                                <i class="bi bi-plus"></i>
+                                class="remove-btn"
+
+                                onclick="
+                                    removeFromCart(
+                                        ${item.id}
+                                    )
+                                ">
+
+                                <i class="bi bi-trash"></i>
 
                             </button>
+
+                        </div>
+
+
+                        <small class="text-muted">
+                            ${item.category}
+                        </small>
+
+
+                        <div class="
+                            d-flex
+                            align-items-center
+                            justify-content-between
+                            mt-3
+                        ">
+
+                            <strong>
+
+                                ${formatPrice(
+                                    item.price *
+                                    item.quantity
+                                )}
+
+                            </strong>
+
+
+                            <div class="
+                                d-flex
+                                align-items-center
+                                gap-2
+                            ">
+
+                                <button
+
+                                    class="quantity-btn"
+
+                                    onclick="
+                                        changeQuantity(
+                                            ${item.id},
+                                            -1
+                                        )
+                                    ">
+
+                                    <i class="bi bi-dash"></i>
+
+                                </button>
+
+
+                                <span>
+                                    ${item.quantity}
+                                </span>
+
+
+                                <button
+
+                                    class="quantity-btn"
+
+                                    onclick="
+                                        changeQuantity(
+                                            ${item.id},
+                                            1
+                                        )
+                                    ">
+
+                                    <i class="bi bi-plus"></i>
+
+                                </button>
+
+                            </div>
 
                         </div>
 
@@ -532,21 +652,22 @@ function updateCartUI() {
 
             </div>
 
-        </div>
-
-    `).join("");
+        `).join("");
 
 
-    const total = cart.reduce(
+    const total =
+        cart.reduce(
 
-        (sum, item) => sum + item.price * item.quantity,
+            (sum, item) =>
+                sum + item.price * item.quantity,
 
-        0
+            0
 
-    );
+        );
 
 
-    cartTotal.textContent = formatPrice(total);
+    cartTotal.textContent =
+        formatPrice(total);
 
 }
 
@@ -555,13 +676,15 @@ function updateCartUI() {
    CHANGE QUANTITY
 ===================================================== */
 
-function changeQuantity(productId, change) {
+function changeQuantity(
+    productId,
+    change
+) {
 
-    const item = cart.find(
-
-        item => item.id === productId
-
-    );
+    const item =
+        cart.find(
+            item => item.id === productId
+        );
 
 
     if (!item) return;
@@ -572,11 +695,11 @@ function changeQuantity(productId, change) {
 
     if (item.quantity <= 0) {
 
-        cart = cart.filter(
-
-            item => item.id !== productId
-
-        );
+        cart =
+            cart.filter(
+                item =>
+                    item.id !== productId
+            );
 
     }
 
@@ -594,18 +717,17 @@ function changeQuantity(productId, change) {
 
 function removeFromCart(productId) {
 
-    const item = cart.find(
+    const item =
+        cart.find(
+            item => item.id === productId
+        );
 
-        item => item.id === productId
 
-    );
-
-
-    cart = cart.filter(
-
-        item => item.id !== productId
-
-    );
+    cart =
+        cart.filter(
+            item =>
+                item.id !== productId
+        );
 
 
     saveCart();
@@ -615,7 +737,9 @@ function removeFromCart(productId) {
 
     if (item) {
 
-        showToast(`${item.name} removed from cart.`);
+        showToast(
+            `${item.name} removed from cart.`
+        );
 
     }
 
@@ -626,30 +750,59 @@ function removeFromCart(productId) {
    WISHLIST
 ===================================================== */
 
-function toggleWishlist(productId, button) {
+function toggleWishlist(
+    productId,
+    button
+) {
 
-    const index = wishlist.indexOf(productId);
+    const index =
+        wishlist.indexOf(productId);
 
 
     if (index === -1) {
 
         wishlist.push(productId);
 
-        button.classList.add("active");
 
-        button.innerHTML = `<i class="bi bi-heart-fill"></i>`;
+        if (button) {
 
-        showToast("Added to your wishlist.");
+            button.classList.add(
+                "active"
+            );
+
+            button.innerHTML =
+                `<i class="bi bi-heart-fill"></i>`;
+
+        }
+
+
+        showToast(
+            "Added to your wishlist."
+        );
 
     } else {
 
-        wishlist.splice(index, 1);
+        wishlist.splice(
+            index,
+            1
+        );
 
-        button.classList.remove("active");
 
-        button.innerHTML = `<i class="bi bi-heart"></i>`;
+        if (button) {
 
-        showToast("Removed from wishlist.");
+            button.classList.remove(
+                "active"
+            );
+
+            button.innerHTML =
+                `<i class="bi bi-heart"></i>`;
+
+        }
+
+
+        showToast(
+            "Removed from wishlist."
+        );
 
     }
 
@@ -662,6 +815,271 @@ function toggleWishlist(productId, button) {
 
     );
 
+
+    updateWishlistUI();
+
+}
+
+
+/* =====================================================
+   UPDATE WISHLIST UI
+===================================================== */
+
+function updateWishlistUI() {
+
+    const wishlistCount =
+        document.getElementById(
+            "wishlistCount"
+        );
+
+    const wishlistItems =
+        document.getElementById(
+            "wishlistItems"
+        );
+
+    const emptyWishlist =
+        document.getElementById(
+            "emptyWishlist"
+        );
+
+
+    if (
+        !wishlistCount ||
+        !wishlistItems ||
+        !emptyWishlist
+    ) {
+
+        return;
+
+    }
+
+
+    /* UPDATE COUNT */
+
+    wishlistCount.textContent =
+        wishlist.length;
+
+
+    /* EMPTY WISHLIST */
+
+    if (wishlist.length === 0) {
+
+        emptyWishlist.classList.remove(
+            "d-none"
+        );
+
+        wishlistItems.innerHTML = "";
+
+        return;
+
+    }
+
+
+    emptyWishlist.classList.add(
+        "d-none"
+    );
+
+
+    /* GET WISHLIST PRODUCTS */
+
+    const wishlistProducts =
+        wishlist
+
+            .map(
+                productId =>
+                    products.find(
+                        product =>
+                            product.id ===
+                            productId
+                    )
+            )
+
+            .filter(Boolean);
+
+
+    /* DISPLAY WISHLIST */
+
+    wishlistItems.innerHTML =
+
+        wishlistProducts.map(
+            product => `
+
+                <div class="wishlist-item">
+
+                    <div class="
+                        d-flex
+                        gap-3
+                        align-items-start
+                    ">
+
+                        <img
+
+                            src="${product.image}"
+
+                            alt="${product.name}">
+
+
+                        <div class="flex-grow-1">
+
+                            <div class="
+                                d-flex
+                                justify-content-between
+                                gap-2
+                            ">
+
+                                <h6 class="mb-1">
+                                    ${product.name}
+                                </h6>
+
+
+                                <!-- REMOVE -->
+
+                                <button
+
+                                    class="
+                                        wishlist-remove-btn
+                                    "
+
+                                    onclick="
+                                        removeFromWishlist(
+                                            ${product.id}
+                                        )
+                                    "
+
+                                    title="
+                                        Remove from wishlist
+                                    ">
+
+                                    <i class="
+                                        bi bi-trash
+                                    "></i>
+
+                                </button>
+
+                            </div>
+
+
+                            <small class="text-muted">
+
+                                ${product.category}
+
+                            </small>
+
+
+                            <div class="
+                                d-flex
+                                align-items-center
+                                justify-content-between
+                                gap-2
+                                mt-3
+                            ">
+
+                                <strong>
+
+                                    ${formatPrice(
+                                        product.price
+                                    )}
+
+                                </strong>
+
+
+                                <!-- ADD TO CART -->
+
+                                <button
+
+                                    class="
+                                        wishlist-add-cart
+                                    "
+
+                                    onclick="
+                                        addWishlistItemToCart(
+                                            ${product.id}
+                                        )
+                                    ">
+
+                                    <i class="
+                                        bi bi-bag-plus me-1
+                                    "></i>
+
+                                    Add to Cart
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `
+        ).join("");
+
+}
+
+
+/* =====================================================
+   REMOVE FROM WISHLIST
+===================================================== */
+
+function removeFromWishlist(productId) {
+
+    const product =
+        products.find(
+            product =>
+                product.id === productId
+        );
+
+
+    wishlist =
+        wishlist.filter(
+            id =>
+                id !== productId
+        );
+
+
+    localStorage.setItem(
+
+        "dreamFurnitureWishlist",
+
+        JSON.stringify(wishlist)
+
+    );
+
+
+    updateWishlistUI();
+
+
+    /*
+       Re-display products so the
+       heart icon becomes empty.
+    */
+
+    displayProducts();
+
+
+    if (product) {
+
+        showToast(
+            `${product.name} removed from wishlist.`
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ADD WISHLIST ITEM TO CART
+===================================================== */
+
+function addWishlistItemToCart(
+    productId
+) {
+
+    addToCart(productId);
+
 }
 
 
@@ -671,19 +1089,30 @@ function toggleWishlist(productId, button) {
 
 function searchProducts(query) {
 
-    const results = document.getElementById("searchResults");
+    const results =
+        document.getElementById(
+            "searchResults"
+        );
+
 
     if (!results) return;
 
 
-    const search = query.toLowerCase().trim();
+    const search =
+        query
+            .toLowerCase()
+            .trim();
 
 
     if (!search) {
 
         results.innerHTML = `
 
-            <p class="text-muted text-center py-3">
+            <p class="
+                text-muted
+                text-center
+                py-3
+            ">
 
                 Start typing to search furniture.
 
@@ -696,27 +1125,52 @@ function searchProducts(query) {
     }
 
 
-    const matchedProducts = products.filter(product =>
+    const matchedProducts =
+        products.filter(
 
-        product.name.toLowerCase().includes(search) ||
+            product =>
 
-        product.category.toLowerCase().includes(search) ||
+                product.name
+                    .toLowerCase()
+                    .includes(search)
 
-        product.description.toLowerCase().includes(search)
+                ||
 
-    );
+                product.category
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                product.description
+                    .toLowerCase()
+                    .includes(search)
+
+        );
 
 
     if (matchedProducts.length === 0) {
 
         results.innerHTML = `
 
-            <div class="text-center py-4">
+            <div class="
+                text-center
+                py-4
+            ">
 
-                <i class="bi bi-search fs-2 text-muted"></i>
+                <i class="
+                    bi bi-search
+                    fs-2
+                    text-muted
+                "></i>
 
-                <p class="text-muted mt-2">
+                <p class="
+                    text-muted
+                    mt-2
+                ">
+
                     No furniture found.
+
                 </p>
 
             </div>
@@ -728,40 +1182,73 @@ function searchProducts(query) {
     }
 
 
-    results.innerHTML = matchedProducts.map(product => `
+    results.innerHTML =
 
-        <div
-            class="search-result d-flex align-items-center gap-3"
-            onclick="selectSearchProduct(${product.id})">
+        matchedProducts.map(
+            product => `
 
-            <img
-                src="${product.image}"
-                width="60"
-                height="60"
-                style="object-fit:cover;border-radius:12px;"
-                alt="${product.name}">
+                <div
+
+                    class="
+                        search-result
+                        d-flex
+                        align-items-center
+                        gap-3
+                    "
+
+                    onclick="
+                        selectSearchProduct(
+                            ${product.id}
+                        )
+                    ">
+
+                    <img
+
+                        src="${product.image}"
+
+                        width="60"
+
+                        height="60"
+
+                        style="
+                            object-fit:cover;
+                            border-radius:12px;
+                        "
+
+                        alt="${product.name}">
 
 
-            <div class="flex-grow-1">
+                    <div class="flex-grow-1">
 
-                <strong>
-                    ${product.name}
-                </strong>
-
-                <small class="d-block text-muted">
-                    ${product.category}
-                </small>
-
-            </div>
+                        <strong>
+                            ${product.name}
+                        </strong>
 
 
-            <strong>
-                ${formatPrice(product.price)}
-            </strong>
+                        <small class="
+                            d-block
+                            text-muted
+                        ">
 
-        </div>
+                            ${product.category}
 
-    `).join("");
+                        </small>
+
+                    </div>
+
+
+                    <strong>
+
+                        ${formatPrice(
+                            product.price
+                        )}
+
+                    </strong>
+
+                </div>
+
+            `
+        ).join("");
 
 }
 
@@ -770,11 +1257,21 @@ function searchProducts(query) {
    SELECT SEARCH PRODUCT
 ===================================================== */
 
-function selectSearchProduct(productId) {
+function selectSearchProduct(
+    productId
+) {
 
-    const modalElement = document.getElementById("searchModal");
+    const modalElement =
+        document.getElementById(
+            "searchModal"
+        );
 
-    const modal = bootstrap.Modal.getInstance(modalElement);
+
+    const modal =
+        bootstrap.Modal.getInstance(
+            modalElement
+        );
+
 
     if (modal) {
 
@@ -785,16 +1282,19 @@ function selectSearchProduct(productId) {
 
     setTimeout(() => {
 
-        const product = products.find(
-
-            item => item.id === productId
-
-        );
+        const product =
+            products.find(
+                item =>
+                    item.id === productId
+            );
 
 
         if (product) {
 
-            openImage(product.image, product.name);
+            openImage(
+                product.image,
+                product.name
+            );
 
         }
 
@@ -807,20 +1307,33 @@ function selectSearchProduct(productId) {
    IMAGE POPUP
 ===================================================== */
 
-function openImage(image, name) {
+function openImage(
+    image,
+    name
+) {
 
-    const popupImage = document.getElementById("popupImage");
+    const popupImage =
+        document.getElementById(
+            "popupImage"
+        );
 
-    popupImage.src = image;
 
-    popupImage.alt = name;
+    popupImage.src =
+        image;
 
 
-    const modal = new bootstrap.Modal(
+    popupImage.alt =
+        name;
 
-        document.getElementById("imageModal")
 
-    );
+    const modal =
+        new bootstrap.Modal(
+
+            document.getElementById(
+                "imageModal"
+            )
+
+        );
 
 
     modal.show();
@@ -832,27 +1345,46 @@ function openImage(image, name) {
    TOAST
 ===================================================== */
 
-function showToast(message) {
+function showToast(
+    message
+) {
 
-    const toastElement = document.getElementById("liveToast");
-
-    const toastMessage = document.getElementById("toastMessage");
-
-
-    toastMessage.textContent = message;
+    const toastElement =
+        document.getElementById(
+            "liveToast"
+        );
 
 
-    const toast = new bootstrap.Toast(
+    const toastMessage =
+        document.getElementById(
+            "toastMessage"
+        );
 
-        toastElement,
 
-        {
+    if (!toastElement ||
+        !toastMessage) {
 
-            delay: 2500
+        return;
 
-        }
+    }
 
-    );
+
+    toastMessage.textContent =
+        message;
+
+
+    const toast =
+        new bootstrap.Toast(
+
+            toastElement,
+
+            {
+
+                delay: 2500
+
+            }
+
+        );
 
 
     toast.show();
@@ -868,29 +1400,44 @@ function checkout() {
 
     if (cart.length === 0) {
 
-        showToast("Your cart is empty.");
+        showToast(
+            "Your cart is empty."
+        );
 
         return;
 
     }
 
 
-    const total = cart.reduce(
+    const total =
+        cart.reduce(
 
-        (sum, item) => sum + item.price * item.quantity,
+            (sum, item) =>
+                sum +
+                item.price *
+                item.quantity,
 
-        0
+            0
 
-    );
+        );
 
 
     alert(
 
         `Thank you for shopping with DREAM FURNITURE!\n\n` +
 
-        `Items: ${cart.reduce((sum, item) => sum + item.quantity, 0)}\n` +
+        `Items: ${
+            cart.reduce(
+                (sum, item) =>
+                    sum +
+                    item.quantity,
+                0
+            )
+        }\n` +
 
-        `Total: ${formatPrice(total)}\n\n` +
+        `Total: ${
+            formatPrice(total)
+        }\n\n` +
 
         `Checkout functionality can be connected to your backend/payment gateway.`
 
@@ -903,57 +1450,85 @@ function checkout() {
    CONTACT FORM
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    const contactForm = document.getElementById("contactForm");
-
-
-    if (contactForm) {
-
-        contactForm.addEventListener("submit", function (event) {
-
-            event.preventDefault();
-
-
-            const name = document.getElementById("contactName").value.trim();
-
-
-            showToast(
-
-                `Thank you ${name}! Your message has been sent.`
-
+        const contactForm =
+            document.getElementById(
+                "contactForm"
             );
 
 
-            contactForm.reset();
+        if (contactForm) {
 
-        });
+            contactForm.addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+
+                    const name =
+                        document
+                            .getElementById(
+                                "contactName"
+                            )
+                            .value
+                            .trim();
+
+
+                    showToast(
+
+                        `Thank you ${name}! Your message has been sent.`
+
+                    );
+
+
+                    contactForm.reset();
+
+                }
+            );
+
+        }
 
     }
-
-});
+);
 
 
 /* =====================================================
    NAVBAR SCROLL EFFECT
 ===================================================== */
 
-window.addEventListener("scroll", function () {
+window.addEventListener(
+    "scroll",
+    function () {
 
-    const navbar = document.getElementById("mainNavbar");
+        const navbar =
+            document.getElementById(
+                "mainNavbar"
+            );
 
 
-    if (window.scrollY > 50) {
+        if (!navbar) return;
 
-        navbar.classList.add("scrolled");
 
-    } else {
+        if (window.scrollY > 50) {
 
-        navbar.classList.remove("scrolled");
+            navbar.classList.add(
+                "scrolled"
+            );
+
+        } else {
+
+            navbar.classList.remove(
+                "scrolled"
+            );
+
+        }
 
     }
-
-});
+);
 
 
 /* =====================================================
@@ -962,72 +1537,109 @@ window.addEventListener("scroll", function () {
 
 function revealOnScroll() {
 
-    const elements = document.querySelectorAll(".reveal");
+    const elements =
+        document.querySelectorAll(
+            ".reveal"
+        );
 
 
-    const windowHeight = window.innerHeight;
+    const windowHeight =
+        window.innerHeight;
 
 
-    elements.forEach(element => {
+    elements.forEach(
+        element => {
 
-        const elementTop = element.getBoundingClientRect().top;
+            const elementTop =
+                element
+                    .getBoundingClientRect()
+                    .top;
 
 
-        if (elementTop < windowHeight - 80) {
+            if (
+                elementTop <
+                windowHeight - 80
+            ) {
 
-            element.classList.add("show");
+                element.classList.add(
+                    "show"
+                );
+
+            }
 
         }
-
-    });
+    );
 
 }
 
 
-window.addEventListener("scroll", revealOnScroll);
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
 
 
 /* =====================================================
    INITIAL LOAD
 ===================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    displayProducts("All");
+        displayProducts("All");
 
-    updateCartUI();
+        updateCartUI();
 
-    revealOnScroll();
+        updateWishlistUI();
 
-});
+        revealOnScroll();
+
+    }
+);
 
 
 /* =====================================================
    CLOSE MOBILE NAVBAR AFTER CLICK
 ===================================================== */
 
-document.querySelectorAll(".navbar-nav .nav-link")
-    .forEach(link => {
+document
+    .querySelectorAll(
+        ".navbar-nav .nav-link"
+    )
+    .forEach(
+        link => {
 
-        link.addEventListener("click", function () {
+            link.addEventListener(
+                "click",
+                function () {
 
-            const navbarContent =
-                document.getElementById("navbarContent");
+                    const navbarContent =
+                        document.getElementById(
+                            "navbarContent"
+                        );
 
 
-            if (
-                navbarContent.classList.contains("show")
-            ) {
+                    if (
+                        navbarContent &&
+                        navbarContent.classList.contains(
+                            "show"
+                        )
+                    ) {
 
-                bootstrap.Collapse
-                    .getOrCreateInstance(navbarContent)
-                    .hide();
+                        bootstrap.Collapse
+                            .getOrCreateInstance(
+                                navbarContent
+                            )
+                            .hide();
 
-            }
+                    }
 
-        });
+                }
+            );
 
-    });
+        }
+    );
 
 
 /* =====================================================
@@ -1035,35 +1647,55 @@ document.querySelectorAll(".navbar-nav .nav-link")
 ===================================================== */
 
 const searchModal =
-    document.getElementById("searchModal");
+    document.getElementById(
+        "searchModal"
+    );
 
 
 if (searchModal) {
 
     searchModal.addEventListener(
+
         "hidden.bs.modal",
+
         function () {
 
             const searchInput =
-                document.getElementById("searchInput");
+                document.getElementById(
+                    "searchInput"
+                );
 
 
             const searchResults =
-                document.getElementById("searchResults");
+                document.getElementById(
+                    "searchResults"
+                );
 
 
-            searchInput.value = "";
+            if (searchInput) {
+
+                searchInput.value = "";
+
+            }
 
 
-            searchResults.innerHTML = `
+            if (searchResults) {
 
-                <p class="text-muted text-center py-3">
+                searchResults.innerHTML = `
 
-                    Start typing to search furniture.
+                    <p class="
+                        text-muted
+                        text-center
+                        py-3
+                    ">
 
-                </p>
+                        Start typing to search furniture.
 
-            `;
+                    </p>
+
+                `;
+
+            }
 
         }
 
