@@ -1,0 +1,3223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="DREAM FURNITURE - Premium modern furniture for beautiful living spaces.">
+
+    <title>DREAM FURNITURE | Premium Furniture Store</title>
+
+
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         CUSTOM CSS
+    ====================================================== -->
+
+    <style>
+
+        :root {
+
+            --black: #17130f;
+            --dark: #211a15;
+            --dark-2: #30251d;
+
+            --brown: #74543d;
+            --brown-light: #9c7654;
+
+            --gold: #b78b52;
+            --gold-light: #d8b27a;
+
+            --cream: #faf6ef;
+            --cream-2: #f2e9dc;
+
+            --white: #ffffff;
+
+            --text: #28221d;
+            --muted: #7b746c;
+
+            --border: #e9dfd2;
+
+            --shadow-sm: 0 10px 30px rgba(40, 30, 20, .06);
+            --shadow-lg: 0 25px 70px rgba(40, 30, 20, .12);
+
+        }
+
+
+        /* =====================================================
+           GLOBAL
+        ====================================================== */
+
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family: "DM Sans", sans-serif;
+
+            background: var(--white);
+
+            color: var(--text);
+
+            overflow-x: hidden;
+
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+
+            font-family: "Playfair Display", serif;
+
+        }
+
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+
+        ::selection {
+
+            background: var(--gold);
+
+            color: white;
+
+        }
+
+
+        /* =====================================================
+           SCROLLBAR
+        ====================================================== */
+
+        ::-webkit-scrollbar {
+
+            width: 8px;
+
+        }
+
+
+        ::-webkit-scrollbar-track {
+
+            background: var(--cream);
+
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+
+            background: var(--gold);
+
+            border-radius: 20px;
+
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ====================================================== */
+
+        .navbar {
+
+            background: rgba(255, 255, 255, .88);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            padding: 16px 0;
+
+            transition: .4s ease;
+
+            border-bottom: 1px solid transparent;
+
+        }
+
+
+        .navbar.scrolled {
+
+            padding: 10px 0;
+
+            border-bottom-color: rgba(0, 0, 0, .06);
+
+            box-shadow: 0 10px 35px rgba(0, 0, 0, .07);
+
+        }
+
+
+        .navbar-brand {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            color: var(--black);
+
+        }
+
+
+        .navbar-brand .brand-gold {
+
+            color: var(--gold);
+
+        }
+
+
+        .navbar-brand small {
+
+            display: block;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 7px;
+
+            letter-spacing: 4px;
+
+            color: var(--muted);
+
+            text-align: center;
+
+            margin-top: -3px;
+
+        }
+
+
+        .nav-link {
+
+            position: relative;
+
+            color: var(--text);
+
+            font-weight: 600;
+
+            margin: 0 7px;
+
+            padding: 10px 12px !important;
+
+            transition: .3s;
+
+        }
+
+
+        .nav-link::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 0;
+
+            height: 2px;
+
+            left: 50%;
+
+            bottom: 3px;
+
+            transform: translateX(-50%);
+
+            background: var(--gold);
+
+            transition: .3s;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: var(--gold);
+
+        }
+
+
+        .nav-link:hover::after {
+
+            width: 65%;
+
+        }
+
+
+        .nav-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            border: 1px solid var(--border);
+
+            background: var(--cream);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: .35s;
+
+        }
+
+
+        .nav-icon:hover {
+
+            background: var(--black);
+
+            color: white;
+
+            transform: translateY(-3px);
+
+            border-color: var(--black);
+
+        }
+
+
+        .cart-badge {
+
+            font-size: 9px;
+
+            min-width: 18px;
+
+            height: 18px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .hero {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            color: white;
+
+            overflow: hidden;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(15, 12, 9, .94) 0%,
+                    rgba(15, 12, 9, .72) 38%,
+                    rgba(15, 12, 9, .18) 100%
+                ),
+
+                url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=90")
+                center/cover no-repeat;
+
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            border-radius: 50%;
+
+            background: rgba(183, 139, 82, .08);
+
+            top: -250px;
+
+            right: -100px;
+
+            filter: blur(5px);
+
+        }
+
+
+        .hero-content {
+
+            max-width: 780px;
+
+            padding-top: 60px;
+
+            animation: heroReveal 1.2s ease both;
+
+        }
+
+
+        @keyframes heroReveal {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(40px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        .hero-tag {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            color: var(--gold-light);
+
+            font-weight: 700;
+
+        }
+
+
+        .hero-tag::before {
+
+            content: "";
+
+            width: 40px;
+
+            height: 1px;
+
+            background: var(--gold-light);
+
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(50px, 7vw, 90px);
+
+            line-height: .98;
+
+            letter-spacing: -2px;
+
+            margin-top: 22px;
+
+        }
+
+
+        .hero h1 span {
+
+            color: var(--gold-light);
+
+            font-style: italic;
+
+        }
+
+
+        .hero p {
+
+            max-width: 600px;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
+            color: rgba(255,255,255,.78);
+
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+        }
+
+
+        .btn-premium {
+
+            background: linear-gradient(
+                135deg,
+                var(--gold),
+                var(--gold-light)
+            );
+
+            color: white;
+
+            border: none;
+
+            padding: 14px 28px;
+
+            border-radius: 50px;
+
+            font-weight: 700;
+
+            transition: .35s;
+
+            box-shadow: 0 10px 30px rgba(183,139,82,.2);
+
+        }
+
+
+        .btn-premium:hover {
+
+            color: var(--black);
+
+            transform: translateY(-4px);
+
+            box-shadow: 0 15px 35px rgba(183,139,82,.35);
+
+        }
+
+
+        .btn-outline-premium {
+
+            color: white;
+
+            border: 1px solid rgba(255,255,255,.6);
+
+            padding: 13px 27px;
+
+            border-radius: 50px;
+
+            transition: .35s;
+
+        }
+
+
+        .btn-outline-premium:hover {
+
+            background: white;
+
+            color: var(--black);
+
+            transform: translateY(-3px);
+
+        }
+
+
+        .hero-stat {
+
+            margin-top: 60px;
+
+            display: flex;
+
+            gap: 45px;
+
+        }
+
+
+        .hero-stat h4 {
+
+            font-size: 28px;
+
+            margin-bottom: 2px;
+
+        }
+
+
+        .hero-stat p {
+
+            font-size: 12px;
+
+            margin: 0;
+
+            letter-spacing: 1px;
+
+            color: rgba(255,255,255,.6);
+
+        }
+
+
+        /* =====================================================
+           SECTION
+        ====================================================== */
+
+        .section-padding {
+
+            padding: 110px 0;
+
+        }
+
+
+        .section-label {
+
+            color: var(--gold);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .section-title {
+
+            font-size: clamp(38px, 5vw, 58px);
+
+            line-height: 1.08;
+
+            letter-spacing: -1px;
+
+        }
+
+
+        .section-description {
+
+            max-width: 600px;
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           CATEGORY
+        ====================================================== */
+
+        .category-card {
+
+            height: 390px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            cursor: pointer;
+
+            box-shadow: var(--shadow-sm);
+
+        }
+
+
+        .category-card img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .8s cubic-bezier(.2,.7,.2,1);
+
+        }
+
+
+        .category-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 1;
+
+            background: linear-gradient(
+                transparent 30%,
+                rgba(0,0,0,.82)
+            );
+
+        }
+
+
+        .category-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 12px;
+
+            border: 1px solid rgba(255,255,255,.25);
+
+            border-radius: 20px;
+
+            z-index: 2;
+
+            opacity: 0;
+
+            transform: scale(.95);
+
+            transition: .5s;
+
+        }
+
+
+        .category-card:hover img {
+
+            transform: scale(1.12);
+
+        }
+
+
+        .category-card:hover::after {
+
+            opacity: 1;
+
+            transform: scale(1);
+
+        }
+
+
+        .category-content {
+
+            position: absolute;
+
+            z-index: 3;
+
+            left: 30px;
+
+            right: 30px;
+
+            bottom: 28px;
+
+            color: white;
+
+        }
+
+
+        .category-content span {
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            color: var(--gold-light);
+
+            text-transform: uppercase;
+
+        }
+
+
+        .category-content h3 {
+
+            font-size: 34px;
+
+            margin: 6px 0;
+
+        }
+
+
+        .category-content p {
+
+            color: rgba(255,255,255,.75);
+
+            margin: 0;
+
+        }
+
+
+        /* =====================================================
+           SHOP
+        ====================================================== */
+
+        .shop-section {
+
+            background: var(--cream);
+
+            position: relative;
+
+        }
+
+
+        .filter-wrapper {
+
+            background: white;
+
+            padding: 6px;
+
+            border-radius: 50px;
+
+            box-shadow: var(--shadow-sm);
+
+        }
+
+
+        .filter-btn {
+
+            border: 0 !important;
+
+            border-radius: 50px !important;
+
+            padding: 10px 20px !important;
+
+            font-weight: 600;
+
+            color: var(--muted);
+
+            background: transparent !important;
+
+            transition: .3s;
+
+        }
+
+
+        .filter-btn.active {
+
+            background: var(--black) !important;
+
+            color: white !important;
+
+        }
+
+
+        /* =====================================================
+           PRODUCT CARD
+        ====================================================== */
+
+        .product-card {
+
+            height: 100%;
+
+            background: white;
+
+            border: 0;
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow-sm);
+
+            transition: .45s cubic-bezier(.2,.7,.2,1);
+
+        }
+
+
+        .product-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: var(--shadow-lg);
+
+        }
+
+
+        .product-image-wrapper {
+
+            height: 290px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: var(--cream-2);
+
+        }
+
+
+        .product-img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            cursor: pointer;
+
+            transition: .7s;
+
+        }
+
+
+        .product-card:hover .product-img {
+
+            transform: scale(1.08);
+
+        }
+
+
+        .product-badge {
+
+            position: absolute;
+
+            top: 16px;
+
+            left: 16px;
+
+            z-index: 3;
+
+            background: var(--black);
+
+            color: white;
+
+            padding: 6px 12px;
+
+            border-radius: 50px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .wishlist-btn {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 15px;
+
+            z-index: 4;
+
+            width: 42px;
+
+            height: 42px;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.95);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,.12);
+
+            transition: .3s;
+
+        }
+
+
+        .wishlist-btn:hover {
+
+            transform: scale(1.1);
+
+        }
+
+
+        .wishlist-btn.active {
+
+            color: #d6335c;
+
+        }
+
+
+        .product-body {
+
+            padding: 23px;
+
+        }
+
+
+        .product-category {
+
+            color: var(--gold);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .product-name {
+
+            font-size: 21px;
+
+            margin-top: 7px;
+
+        }
+
+
+        .product-description {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .product-price {
+
+            color: var(--brown);
+
+            font-size: 19px;
+
+            font-weight: 800;
+
+        }
+
+
+        .add-cart-btn {
+
+            width: 43px;
+
+            height: 43px;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background: var(--black);
+
+            color: white;
+
+            transition: .35s;
+
+        }
+
+
+        .add-cart-btn:hover {
+
+            background: var(--gold);
+
+            transform: rotate(-8deg) scale(1.08);
+
+        }
+
+
+        /* =====================================================
+           OFFER
+        ====================================================== */
+
+        .offer-box {
+
+            background: var(--black);
+
+            border-radius: 32px;
+
+            overflow: hidden;
+
+            color: white;
+
+            box-shadow: var(--shadow-lg);
+
+        }
+
+
+        .offer-content {
+
+            padding: 75px;
+
+        }
+
+
+        .offer-content h2 {
+
+            font-size: clamp(38px, 5vw, 62px);
+
+            line-height: 1.05;
+
+        }
+
+
+        .offer-image {
+
+            min-height: 500px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(23,19,15,.1),
+                    transparent
+                ),
+
+                url("images/furniture4.jfif")
+                center/cover;
+
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ====================================================== */
+
+        .about-image-wrapper {
+
+            position: relative;
+
+        }
+
+
+        .about-image {
+
+            width: 100%;
+
+            height: 560px;
+
+            object-fit: cover;
+
+            border-radius: 30px;
+
+            box-shadow: var(--shadow-lg);
+
+        }
+
+
+        .about-experience {
+
+            position: absolute;
+
+            right: -20px;
+
+            bottom: 30px;
+
+            width: 150px;
+
+            height: 150px;
+
+            border-radius: 50%;
+
+            background: var(--black);
+
+            color: white;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            border: 8px solid white;
+
+        }
+
+
+        .about-experience strong {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 34px;
+
+            color: var(--gold-light);
+
+        }
+
+
+        .about-text {
+
+            color: var(--muted);
+
+            line-height: 1.9;
+
+        }
+
+
+        .about-list {
+
+            list-style: none;
+
+            padding: 0;
+
+        }
+
+
+        .about-list li {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        .about-list i {
+
+            color: var(--gold);
+
+            font-size: 18px;
+
+        }
+
+
+        /* =====================================================
+           FEATURES
+        ====================================================== */
+
+        .features-section {
+
+            background: var(--cream);
+
+        }
+
+
+        .feature-box {
+
+            height: 100%;
+
+            padding: 34px;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 24px;
+
+            transition: .4s;
+
+        }
+
+
+        .feature-box:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow: var(--shadow-lg);
+
+            border-color: transparent;
+
+        }
+
+
+        .feature-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            border-radius: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--cream);
+
+            color: var(--gold);
+
+            font-size: 25px;
+
+        }
+
+
+        .feature-box h5 {
+
+            font-size: 21px;
+
+        }
+
+
+        .feature-box p {
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ====================================================== */
+
+        .contact-section {
+
+            position: relative;
+
+            background:
+
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(183,139,82,.15),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f8f0e4,
+                    #eee2d1
+                );
+
+            overflow: hidden;
+
+        }
+
+
+        .contact-wrapper {
+
+            position: relative;
+
+            z-index: 2;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            background: rgba(255,255,255,.82);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow: var(--shadow-lg);
+
+            border: 1px solid rgba(255,255,255,.9);
+
+        }
+
+
+        .contact-info {
+
+            height: 100%;
+
+            padding: 60px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #261e18,
+                    #4b3829
+                );
+
+            color: white;
+
+        }
+
+
+        .contact-info h3 {
+
+            font-size: 40px;
+
+        }
+
+
+        .contact-info p {
+
+            color: rgba(255,255,255,.68);
+
+            line-height: 1.8;
+
+        }
+
+
+        .contact-detail {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+            margin-top: 28px;
+
+        }
+
+
+        .contact-detail-icon {
+
+            min-width: 46px;
+
+            width: 46px;
+
+            height: 46px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: rgba(255,255,255,.1);
+
+            color: var(--gold-light);
+
+        }
+
+
+        .contact-form {
+
+            padding: 60px;
+
+        }
+
+
+        .contact-input {
+
+            padding: 14px 16px;
+
+            border-radius: 14px;
+
+            border: 1px solid var(--border);
+
+            background: #fff;
+
+            transition: .3s;
+
+        }
+
+
+        .contact-input:focus {
+
+            border-color: var(--gold);
+
+            box-shadow: 0 0 0 4px rgba(183,139,82,.1);
+
+        }
+
+
+        .contact-submit {
+
+            width: 100%;
+
+            border: 0;
+
+            padding: 15px;
+
+            border-radius: 14px;
+
+            background: var(--black);
+
+            color: white;
+
+            font-weight: 700;
+
+            transition: .35s;
+
+        }
+
+
+        .contact-submit:hover {
+
+            background: var(--gold);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            background:
+
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(183,139,82,.1),
+                    transparent 30%
+                ),
+
+                var(--black);
+
+            color: white;
+
+        }
+
+
+        .footer-brand {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+        }
+
+
+        footer a {
+
+            color: #aaa;
+
+            transition: .3s;
+
+        }
+
+
+        footer a:hover {
+
+            color: var(--gold-light);
+
+        }
+
+
+        .footer-title {
+
+            font-size: 17px;
+
+        }
+
+
+        .social-icon {
+
+            width: 42px;
+
+            height: 42px;
+
+            border: 1px solid rgba(255,255,255,.18);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: white;
+
+            transition: .3s;
+
+        }
+
+
+        .social-icon:hover {
+
+            background: var(--gold);
+
+            border-color: var(--gold);
+
+            color: white;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* =====================================================
+           CART
+        ====================================================== */
+
+        .cart-item {
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+
+        .cart-item img {
+
+            width: 75px;
+
+            height: 75px;
+
+            border-radius: 14px;
+
+            object-fit: cover;
+
+        }
+
+
+        .quantity-btn {
+
+            width: 30px;
+
+            height: 30px;
+
+            border: 1px solid #ddd;
+
+            background: white;
+
+            border-radius: 50%;
+
+            transition: .2s;
+
+        }
+
+
+        .quantity-btn:hover {
+
+            background: var(--black);
+
+            color: white;
+
+        }
+
+
+        .remove-btn {
+
+            border: 0;
+
+            background: transparent;
+
+            color: #999;
+
+        }
+
+
+        .remove-btn:hover {
+
+            color: #d33;
+
+        }
+
+
+        /* =====================================================
+           MODALS
+        ====================================================== */
+
+        .modal-content {
+
+            border-radius: 25px !important;
+
+        }
+
+
+        .search-result {
+
+            padding: 12px;
+
+            border-radius: 12px;
+
+            transition: .3s;
+
+            cursor: pointer;
+
+        }
+
+
+        .search-result:hover {
+
+            background: var(--cream);
+
+        }
+
+
+        /* =====================================================
+           ANIMATION
+        ====================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition: 1s ease;
+
+        }
+
+
+        .reveal.show {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media(max-width: 991px) {
+
+            .navbar-collapse {
+
+                margin-top: 15px;
+
+                padding: 20px;
+
+                background: white;
+
+                border-radius: 18px;
+
+                box-shadow: var(--shadow-lg);
+
+            }
+
+
+            .nav-link {
+
+                padding: 10px !important;
+
+            }
+
+
+            .hero {
+
+                min-height: 90vh;
+
+            }
+
+
+            .offer-content {
+
+                padding: 50px 40px;
+
+            }
+
+
+            .contact-info,
+            .contact-form {
+
+                padding: 45px 35px;
+
+            }
+
+
+            .about-experience {
+
+                right: 20px;
+
+            }
+
+        }
+
+
+        @media(max-width: 767px) {
+
+            .section-padding {
+
+                padding: 75px 0;
+
+            }
+
+
+            .hero {
+
+                min-height: 85vh;
+
+                background-position: 67% center;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 48px;
+
+                letter-spacing: -1px;
+
+            }
+
+
+            .hero p {
+
+                font-size: 15px;
+
+            }
+
+
+            .hero-stat {
+
+                gap: 25px;
+
+                margin-top: 40px;
+
+            }
+
+
+            .category-card {
+
+                height: 280px;
+
+            }
+
+
+            .product-image-wrapper {
+
+                height: 260px;
+
+            }
+
+
+            .offer-content {
+
+                padding: 40px 25px;
+
+            }
+
+
+            .offer-image {
+
+                min-height: 320px;
+
+            }
+
+
+            .about-image {
+
+                height: 400px;
+
+            }
+
+
+            .about-experience {
+
+                width: 120px;
+
+                height: 120px;
+
+                right: 10px;
+
+            }
+
+
+            .about-experience strong {
+
+                font-size: 28px;
+
+            }
+
+
+            .contact-info,
+            .contact-form {
+
+                padding: 35px 24px;
+
+            }
+
+
+            .contact-info h3 {
+
+                font-size: 31px;
+
+            }
+
+        }
+
+
+        @media(max-width: 420px) {
+
+            .navbar-brand {
+
+                font-size: 20px;
+
+            }
+
+
+            .navbar-brand small {
+
+                font-size: 6px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 41px;
+
+            }
+
+
+            .hero-stat h4 {
+
+                font-size: 23px;
+
+            }
+
+
+            .hero-stat p {
+
+                font-size: 10px;
+
+            }
+
+
+            .nav-icon {
+
+                width: 40px;
+
+                height: 40px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+
+            DREAM <span class="brand-gold">FURNITURE</span>
+
+            <small>
+                PREMIUM LIVING
+            </small>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler border-0 shadow-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent">
+
+            <i class="bi bi-list fs-2"></i>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="navbarContent">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categories">Categories</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#shop">Shop</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+
+            <div class="d-flex gap-2 mt-3 mt-lg-0">
+
+                <button
+                    class="nav-icon"
+                    data-bs-toggle="modal"
+                    data-bs-target="#searchModal">
+
+                    <i class="bi bi-search"></i>
+
+                </button>
+
+
+                <button
+                    class="nav-icon position-relative"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#cartCanvas">
+
+                    <i class="bi bi-bag"></i>
+
+                    <span
+                        id="cartCount"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark cart-badge">
+
+                        0
+
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="home" class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                CRAFTED FOR BEAUTIFUL LIVING
+            </div>
+
+
+            <h1>
+
+                Furniture that makes
+                <span>home</span> feel special.
+
+            </h1>
+
+
+            <p class="my-4">
+
+                Discover thoughtfully designed furniture
+                where timeless elegance meets everyday comfort.
+                Create spaces that tell your story.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#shop" class="btn btn-premium">
+
+                    Explore Collection
+
+                    <i class="bi bi-arrow-right ms-2"></i>
+
+                </a>
+
+
+                <a href="#about" class="btn btn-outline-premium">
+
+                    Discover Our Story
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-stat">
+
+                <div>
+
+                    <h4>12+</h4>
+
+                    <p>YEARS OF CRAFT</p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>50K+</h4>
+
+                    <p>HAPPY HOMES</p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>4.9/5</h4>
+
+                    <p>CUSTOMER RATING</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
+
+<section id="categories" class="section-padding">
+
+    <div class="container">
+
+        <div class="text-center mb-5 reveal">
+
+            <div class="section-label">
+                Explore Collection
+            </div>
+
+            <h2 class="section-title mt-2">
+                Find Your Perfect Style
+            </h2>
+
+            <p class="section-description mx-auto mt-3">
+                From cozy sofas to elegant dining tables,
+                discover pieces designed to transform your space.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-md-4 reveal">
+
+                <div
+                    class="category-card"
+                    onclick="filterCategory('Sofas')">
+
+                    <img
+                        src="images\sofa3.jfif"
+                        alt="Luxury Sofa">
+
+                    <div class="category-content">
+
+                        <span>01 — Collection</span>
+
+                        <h3>Sofas</h3>
+
+                        <p>
+                            Comfort meets character
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4 reveal">
+
+                <div
+                    class="category-card"
+                    onclick="filterCategory('Tables')">
+
+                    <img
+                        src="images\tables1.jfif"
+                        alt="Luxury Table">
+
+                    <div class="category-content">
+
+                        <span>02 — Collection</span>
+
+                        <h3>Tables</h3>
+
+                        <p>
+                            Made for gathering
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4 reveal">
+
+                <div
+                    class="category-card"
+                    onclick="filterCategory('Chairs')">
+
+                    <img
+                        src="images\chairs2.jfif"
+                        alt="Designer Chair">
+
+                    <div class="category-content">
+
+                        <span>03 — Collection</span>
+
+                        <h3>Chairs</h3>
+
+                        <p>
+                            Sit beautifully
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SHOP
+===================================================== -->
+
+<section id="shop" class="section-padding shop-section">
+
+    <div class="container">
+
+        <div class="row align-items-end mb-5 reveal">
+
+            <div class="col-lg-7">
+
+                <div class="section-label">
+                    Curated For You
+                </div>
+
+                <h2 class="section-title mt-2">
+                    Featured Furniture
+                </h2>
+
+                <p class="section-description mt-3">
+                    Beautiful pieces selected to bring warmth,
+                    personality and sophistication into your home.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-5 mt-4 mt-lg-0">
+
+                <div class="filter-wrapper d-flex flex-wrap justify-content-center">
+
+                    <button
+                        class="btn filter-btn active"
+                        onclick="filterCategory('All', this)">
+
+                        All
+
+                    </button>
+
+
+                    <button
+                        class="btn filter-btn"
+                        onclick="filterCategory('Sofas', this)">
+
+                        Sofas
+
+                    </button>
+
+<button
+                        class="btn filter-btn"
+                        onclick="filterCategory('Bed', this)">
+
+                        Bed
+
+                    </button>
+
+                    <button
+                        class="btn filter-btn"
+                        onclick="filterCategory('Tables', this)">
+
+                        Tables
+
+                    </button>
+
+
+                    <button
+                        class="btn filter-btn"
+                        onclick="filterCategory('Chairs', this)">
+
+                        Chairs
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="productContainer" class="row g-4">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     OFFER
+===================================================== -->
+
+<section class="section-padding">
+
+    <div class="container">
+
+        <div class="offer-box reveal">
+
+            <div class="row g-0 align-items-center">
+
+                <div class="col-lg-6">
+
+                    <div class="offer-content">
+
+                        <div class="section-label">
+                            Limited Collection
+                        </div>
+
+
+                        <h2 class="mt-3">
+                            Make room for something beautiful.
+                        </h2>
+
+
+                        <p class="text-white-50 my-4">
+
+                            Enjoy up to 25% off selected furniture
+                            pieces crafted for modern living.
+
+                        </p>
+
+
+                        <a href="#shop" class="btn btn-premium">
+
+                            Shop The Offer
+
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <div class="offer-image"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about" class="section-padding">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6 reveal">
+
+                <div class="about-image-wrapper">
+
+                    <img
+                        class="about-image"
+                        src="images/furniture5.jfif"
+                        alt="Luxury furniture interior">
+
+
+                    <div class="about-experience">
+
+                        <strong>12+</strong>
+
+                        <small>
+                            YEARS OF
+                            <br>
+                            EXPERIENCE
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6 reveal">
+
+                <div class="section-label">
+                    Our Story
+                </div>
+
+
+                <h2 class="section-title mt-2">
+                    Designed with intention. Made with care.
+                </h2>
+
+
+                <p class="about-text mt-4">
+
+                    At DREAM FURNITURE, we believe furniture
+                    should be more than something you place
+                    in a room.
+
+                    It should create comfort, memories and
+                    a sense of belonging.
+
+                </p>
+
+
+                <p class="about-text">
+
+                    Every piece is thoughtfully selected with
+                    attention to materials, craftsmanship,
+                    proportions and timeless design.
+
+                </p>
+
+
+                <ul class="about-list mt-4">
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Premium quality materials
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Timeless contemporary designs
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Crafted for everyday comfort
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-dark rounded-pill px-4 py-3 mt-3">
+
+                    Talk To Us
+
+                    <i class="bi bi-arrow-right ms-2"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section class="section-padding features-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5 reveal">
+
+            <div class="section-label">
+                The DREAM Difference
+            </div>
+
+            <h2 class="section-title mt-2">
+                Designed Around You
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-sm-6 col-lg-3 reveal">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-truck"></i>
+                    </div>
+
+                    <h5 class="mt-4">
+                        Free Delivery
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        Free delivery on orders above ₹25,000.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-sm-6 col-lg-3 reveal">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+
+                    <h5 class="mt-4">
+                        Quality Assured
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        Premium materials and reliable craftsmanship.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-sm-6 col-lg-3 reveal">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-arrow-repeat"></i>
+                    </div>
+
+                    <h5 class="mt-4">
+                        Easy Returns
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        Simple and hassle-free return experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-sm-6 col-lg-3 reveal">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+
+                    <h5 class="mt-4">
+                        Expert Support
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        Our furniture experts are here whenever you need us.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact" class="contact-section section-padding">
+
+    <div class="container">
+
+        <div class="text-center mb-5 reveal">
+
+            <div class="section-label">
+                Get In Touch
+            </div>
+
+            <h2 class="section-title mt-2">
+                Let's Create Something Beautiful.
+            </h2>
+
+            <p class="text-muted mt-3">
+                Have questions about a product?
+                Our team is ready to help.
+            </p>
+
+        </div>
+
+
+        <div class="contact-wrapper reveal">
+
+            <div class="row g-0">
+
+                <div class="col-lg-5">
+
+                    <div class="contact-info">
+
+                        <div class="section-label">
+                            Contact DREAM
+                        </div>
+
+
+                        <h3 class="mt-3">
+                            We'd love to hear from you.
+                        </h3>
+
+
+                        <p class="mt-3">
+                            Whether you need help selecting
+                            the perfect furniture or want to
+                            know more about our collection,
+                            get in touch with us.
+                        </p>
+
+
+                        <div class="contact-detail">
+
+                            <div class="contact-detail-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>Visit Us</strong>
+
+                                <p class="mb-0 mt-1">
+                                    Pune, Maharashtra, India
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-detail">
+
+                            <div class="contact-detail-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>Email</strong>
+
+                                <p class="mb-0 mt-1">
+                                    hello@dreamfurniture.com
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-detail">
+
+                            <div class="contact-detail-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>Phone</strong>
+
+                                <p class="mb-0 mt-1">
+                                    +91 98765 43210
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="d-flex gap-2 mt-4">
+
+                            <a href="#" class="social-icon">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+
+                            <a href="#" class="social-icon">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+
+                            <a href="#" class="social-icon">
+                                <i class="bi bi-pinterest"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-7">
+
+                    <div class="contact-form">
+
+                        <h3>
+                            Send Us A Message
+                        </h3>
+
+                        <p class="text-muted">
+                            Fill in the details and we'll get back to you soon.
+                        </p>
+
+
+                        <form id="contactForm" class="mt-4">
+
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        Your Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="contactName"
+                                        class="form-control contact-input"
+                                        placeholder="Enter your name"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <label class="form-label">
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="contactEmail"
+                                        class="form-control contact-input"
+                                        placeholder="Enter your email"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-12">
+
+                                    <label class="form-label">
+                                        Subject
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="contactSubject"
+                                        class="form-control contact-input"
+                                        placeholder="How can we help?"
+                                        required>
+
+                                </div>
+
+
+                                <div class="col-12">
+
+                                    <label class="form-label">
+                                        Message
+                                    </label>
+
+                                    <textarea
+                                        id="contactMessage"
+                                        class="form-control contact-input"
+                                        rows="5"
+                                        placeholder="Write your message..."
+                                        required></textarea>
+
+                                </div>
+
+
+                                <div class="col-12">
+
+                                    <button
+                                        type="submit"
+                                        class="contact-submit">
+
+                                        Send Message
+
+                                        <i class="bi bi-arrow-right ms-2"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="pt-5 pb-4">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <div class="col-lg-5">
+
+                <div class="footer-brand">
+                    DREAM <span class="text-warning">FURNITURE</span>
+                </div>
+
+
+                <p class="text-white-50 mt-3">
+
+                    Premium furniture for modern living.
+                    Thoughtfully designed for beautiful spaces
+                    and everyday comfort.
+
+                </p>
+
+
+                <div class="d-flex gap-2 mt-4">
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-pinterest"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h6 class="footer-title">
+                    Explore
+                </h6>
+
+                <ul class="list-unstyled mt-3">
+
+                    <li class="mb-2">
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#shop">Shop</a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h6 class="footer-title">
+                    Categories
+                </h6>
+
+                <ul class="list-unstyled mt-3">
+
+                    <li class="mb-2">
+                        <a href="#shop">Sofas</a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#shop">Tables</a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a href="#shop">Chairs</a>
+                    </li>
+
+                    <li>
+                        <a href="#shop">Decor</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <h6 class="footer-title">
+                    Contact
+                </h6>
+
+
+                <p class="text-white-50 mt-3">
+                    <i class="bi bi-envelope me-2 text-warning"></i>
+                    hello@dreamfurniture.com
+                </p>
+
+
+                <p class="text-white-50">
+                    <i class="bi bi-telephone me-2 text-warning"></i>
+                    +91 98765 43210
+                </p>
+
+
+                <p class="text-white-50">
+                    <i class="bi bi-geo-alt me-2 text-warning"></i>
+                    Pune, Maharashtra
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <hr class="border-secondary my-4">
+
+
+        <div class="text-center text-white-50">
+
+            © 2026 DREAM FURNITURE.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     CART OFFCANVAS
+===================================================== -->
+
+<div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="cartCanvas">
+
+    <div class="offcanvas-header border-bottom">
+
+        <h5 class="offcanvas-title">
+            <i class="bi bi-bag me-2"></i>
+            Your Cart
+        </h5>
+
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas">
+        </button>
+
+    </div>
+
+
+    <div class="offcanvas-body">
+
+        <div id="cartItems"></div>
+
+
+        <div id="emptyCart" class="text-center py-5">
+
+            <i class="bi bi-bag-x fs-1 text-muted"></i>
+
+            <h5 class="mt-3">
+                Your cart is empty
+            </h5>
+
+            <p class="text-muted">
+                Add something beautiful to your space.
+            </p>
+
+            <button
+                class="btn btn-dark rounded-pill px-4"
+                data-bs-dismiss="offcanvas">
+
+                Continue Shopping
+
+            </button>
+
+        </div>
+
+
+        <div id="cartSummary" class="d-none">
+
+            <hr>
+
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <span class="text-muted">
+                    Subtotal
+                </span>
+
+                <strong id="cartTotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <small class="text-muted d-block mt-2">
+                Taxes and delivery calculated at checkout.
+            </small>
+
+
+            <button
+                onclick="checkout()"
+                class="btn btn-dark rounded-pill w-100 py-3 mt-4">
+
+                Proceed To Checkout
+
+                <i class="bi bi-arrow-right ms-2"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SEARCH MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="searchModal"
+    tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content border-0 shadow-lg">
+
+            <div class="modal-body p-4">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <h4 class="mb-0">
+                        Search Furniture
+                    </h4>
+
+                    <button
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+
+                <div class="position-relative mt-4">
+
+                    <i
+                        class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted">
+                    </i>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="form-control rounded-pill p-3 ps-5"
+                        placeholder="Search sofa, table, chair..."
+                        oninput="searchProducts(this.value)">
+
+                </div>
+
+
+                <div id="searchResults" class="mt-3">
+
+                    <p class="text-muted text-center py-3">
+                        Start typing to search furniture.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     IMAGE MODAL
+===================================================== -->
+
+<div
+    class="modal fade"
+    id="imageModal"
+    tabindex="-1">
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content bg-transparent border-0">
+
+            <div class="modal-body p-0 position-relative">
+
+                <button
+                    class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                    data-bs-dismiss="modal">
+                </button>
+
+
+                <img
+                    id="popupImage"
+                    class="w-100 rounded-4"
+                    style="max-height:75vh;object-fit:cover;"
+                    alt="Furniture">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="position-fixed bottom-0 end-0 p-3"
+    style="z-index:9999">
+
+    <div
+        id="liveToast"
+        class="toast border-0 shadow-lg">
+
+        <div class="toast-body p-3">
+
+            <i class="bi bi-check-circle-fill text-success me-2"></i>
+
+            <span id="toastMessage">
+                Added to cart
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
